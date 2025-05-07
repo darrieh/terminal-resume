@@ -73,6 +73,18 @@ input.addEventListener('keydown', function(event) {
       output.scrollTop = output.scrollHeight;
     }
   }
+  else if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'c') {
+    event.preventDefault();
+
+    const currentCmd = input.innerText.trim();
+
+    // Show ^C under the current prompt line
+    output.innerHTML += `<div><span class="prompt">bozhidar@stoyanov:~</span> <span class="user-command">${currentCmd}^C</span></div>`;
+
+    input.innerText = '';
+    input.focus();
+    output.scrollTop = output.scrollHeight;
+  }
 });
 
 function placeCaretAtEnd(el) {
