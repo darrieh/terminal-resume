@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bozhidar Stoyanov's Terminal Story</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="title-frame">
+    <h1 id="main-title">Bozhidar Stoyanov's Terminal Story</h1>
+  </div>
+
+  <div id="terminal-container">
+    <div id="terminal-header">
+      <div class="buttons">
+        <span class="btn red"></span>
+        <span class="btn yellow"></span>
+        <span class="btn green"></span>
+      </div>
+      <div id="terminal-title">bozhidar@stoyanov:~</div>
+    </div>
+
+    <div id="terminal">
+      <div id="output"></div>
+      <div id="input-line">
+        <span class="prompt">bozhidar@stoyanov:~</span>
+        <div id="input" contenteditable="true" spellcheck="false" autofocus></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

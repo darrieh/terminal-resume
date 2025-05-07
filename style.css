@@ -1,0 +1,160 @@
+body {
+  background-color: #2e3436;
+  color: #F8F8FF;
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 18px;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+#title-frame {
+  border: 2px solid #663399;
+  padding: 15px 30px;
+  border-radius: 12px;
+  background-color: #111111;
+  box-shadow: 0 0 15px;
+  margin-bottom: 20px;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+#main-title {
+  color: #DCDCDC;
+  font-family: 'Courier New', monospace;
+  font-size: 24px;
+  margin: 0;
+  text-align: center;
+}
+
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 5px #663399; }
+  to   { box-shadow: 0 0 20px #663399; }
+}
+
+#terminal-container {
+  width: 80%;
+  max-width: 1400px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px #00000088;
+}
+
+#terminal-header {
+  background-color: #1a1a1a;
+  padding: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#terminal-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffffaa;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  pointer-events: none;
+}
+
+.buttons {
+  display: flex;
+  gap: 6px;
+  margin-left: 10px;
+}
+
+.btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red    { background-color: #ff605c; }
+.yellow { background-color: #ffbd44; }
+.green  { background-color: #00ca4e; }
+
+#terminal {
+  background-color: #000000;
+  padding: 20px;
+  height: 700px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#input-line {
+  display: flex;
+  align-items: center;
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-top: 5px;
+  gap: 11px;
+}
+
+.prompt {
+  color: #228B22;
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 18px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+.prompt::after {
+  content: '$';
+  color: #ffffff;
+  margin-left: 1px;
+}
+
+#input {
+  background: transparent;
+  border: none;
+  color: #DCDCDC;
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 18px;
+  outline: none;
+  width: 100%;
+  caret-color: #ffffff;
+  font-weight: normal;
+  white-space: pre-wrap;
+  line-height: 1.2;
+  margin-left: 6px;
+}
+
+.output-line {
+  color: #5F9EA0;
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 18px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+.output-line.error {
+  color: #ff4d4d;
+}
+
+.welcome-line {
+  color: #F8F8FF;
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 18px;
+}
+
+.user-command {
+  color: #F8F8FF !important;
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 18px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+#terminal div {
+  margin: 0;
+  padding: 0;
+}
