@@ -123,6 +123,7 @@ function handleCommand(cmd) {
   output.scrollTop = output.scrollHeight;
 }
 
+// Start typing whenever you click on the terminal
 document.getElementById('terminal').addEventListener('click', () => {
   input.focus();
 });
