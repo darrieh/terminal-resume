@@ -6,10 +6,12 @@ const availableCommands = [
   'whoami',
   'hostname',
   'ls',
-  'cat readme.md',
-  'cd projects',
-  'sudo make me a sandwich',
-  'clear'
+  'cat aboutme.txt',
+  'cat hobbies.txt',
+  'cat square_consultancy.log',
+  'sudo',
+  'clear',
+  'history'
 ];
 
 let history = [];
@@ -73,13 +75,14 @@ input.addEventListener('keydown', function(event) {
       output.scrollTop = output.scrollHeight;
     }
   }
+
   else if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'c') {
     event.preventDefault();
 
     const currentCmd = input.innerText.trim();
 
     // Show ^C under the current prompt line
-    output.innerHTML += `<div><span class="prompt">bozhidar@stoyanov:~</span> <span class="user-command">${currentCmd}^C</span></div>`;
+    output.innerHTML += `<div><span class="prompt">bozhidar@stoyanov:~</span> <span class="user-command">${currentCmd}<span class="ctrlc">^C</span></span></div>`;
 
     input.innerText = '';
     input.focus();
@@ -102,31 +105,52 @@ function handleCommand(cmd) {
 
   switch (lowerCmd) {
     case 'help':
-      output.innerHTML += `<div class="output-line">whoami &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tells three names.</div>`;
-      output.innerHTML += `<div class="output-line">hostname &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tells where do I come from.</div>`;
-      output.innerHTML += `<div class="output-line">ls &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; shows more things about me.</div>`;
-      output.innerHTML += `<div class="output-line">cat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read those things.</div>`;
+      output.innerHTML += `<div class="output-line">whoami &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Who am I?</div>`;
+      output.innerHTML += `<div class="output-line">hostname &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What is my hometown?</div>`;
+      output.innerHTML += `<div class="output-line">ls &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List files and directories</div>`;
+      output.innerHTML += `<div class="output-line">cat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Meow</div>`;
+      output.innerHTML += `<div class="output-line">help &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You obviously already know what it does</div>`;
+      output.innerHTML += `<div class="output-line">clear &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Clear the terminal</div>`;
+      output.innerHTML += `<div class="output-line">history &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Show command history</div>`;
       break;
     case 'whoami':
       output.innerHTML += `<div class="output-line">Bozhidar Asenov Stoyanov</div>`;
       break;
     case 'hostname':
-      output.innerHTML += `<div class="output-line">test.local</div>`;
+      output.innerHTML += `<div class="output-line">Where do you buy a second hand car in Bulgaria? Not Vratsa - the other one (:</div>`;
       break;
     case 'ls':
-      output.innerHTML += `<div class="output-line">documents/  projects/  hobbies/  dreams/</div>`;
+      output.innerHTML += `<div class="output-line">aboutme.txt hobbies.txt square_consultancy.log zenzero.log shelly.log</div>`;
       break;
-    case 'cat readme.md':
-      output.innerHTML += `<div class="output-line">Hello! I'm Bob Marley, a sysadmin who loves Linux, reggae music, and solving problems with a bash script!</div>`;
+    case 'cat aboutme.txt':
+      output.innerHTML += `<div class="output-line">Still working on that one</div>`;
       break;
-    case 'cd projects':
-      output.innerHTML += `<div class="output-line">Moved into /projects. Try 'ls' here!</div>`;
-      break;
-    case 'sudo make me a sandwich':
-      output.innerHTML += `<div class="output-line">Okay. 🥪 (sudo privileges confirmed)</div>`;
+	case 'cat hobbies.txt':
+      output.innerHTML += `<div class="output-line">chess, gym, cycling, computer homelabbing, youngtimer cars admirer, table tennis</div>`;
+      break;  
+    case 'cat square_consultancy.log':
+	  output.innerHTML += `<div class="output-line">[2020-09-17] My all time IT journey began thanks to Square Consultancy that decided to give me a chance.</div>`;
+	  output.innerHTML += `
+    <div class="output-line">
+      [2020-09-17] Installed and configured hardware, software, network, printers, scanners<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Worked with on-premise Active Directory and was creating accounts and giving access to new employees<br>
+  	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Got familiar with Windows OS and GPOs<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Faced Linux OS for the first time in my life and worked with KVM virtual machines<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Crimped my first LAN cable ever and learned how to configure routers and switches<br>
+      [2022-10-29] My time at Square Consultancy came to an end.
+    </div>`;
+	  break;
+
+    case 'sudo':
+      output.innerHTML += `<div class="output-line">No way. Not until I am live</div>`;
       break;
     case 'clear':
       output.innerHTML = '';
+      break;
+    case 'history':
+      history.forEach((entry, index) => {
+        output.innerHTML += `<div class="output-line">${index + 1}  ${entry}</div>`;
+      });
       break;
     default:
       output.innerHTML += `<div class="output-line error">bash: ${cmd}: command not found. Type 'help' to view a list of available commands.</div>`;
@@ -135,7 +159,6 @@ function handleCommand(cmd) {
   output.scrollTop = output.scrollHeight;
 }
 
-// Start typing whenever you click on the terminal
 document.getElementById('terminal').addEventListener('click', () => {
   input.focus();
 });

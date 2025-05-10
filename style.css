@@ -107,7 +107,7 @@ body {
 
 .prompt::after {
   content: '$';
-  color: #ffffff;
+  color: #F8F8FF;
   margin-left: 1px;
 }
 
@@ -119,7 +119,7 @@ body {
   font-size: 18px;
   outline: none;
   width: 100%;
-  caret-color: #ffffff;
+  caret-color: #F8F8FF;
   font-weight: normal;
   white-space: pre-wrap;
   line-height: 1.2;
@@ -158,3 +158,4 @@ body {
   margin: 0;
   padding: 0;
 }
+
