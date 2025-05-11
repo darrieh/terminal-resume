@@ -11,7 +11,8 @@ const availableCommands = [
   'cat square_consultancy.log',
   'sudo',
   'clear',
-  'history'
+  'history',
+  'interview'
 ];
 
 let history = [];
@@ -112,6 +113,8 @@ function handleCommand(cmd) {
       output.innerHTML += `<div class="output-line">help &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You obviously already know what it does</div>`;
       output.innerHTML += `<div class="output-line">clear &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Clear the terminal</div>`;
       output.innerHTML += `<div class="output-line">history &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Show command history</div>`;
+      output.innerHTML += `<div class="output-line">interview &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Starts an AI interview</div>`;
+
       break;
     case 'whoami':
       output.innerHTML += `<div class="output-line">Bozhidar Asenov Stoyanov</div>`;
@@ -140,9 +143,19 @@ function handleCommand(cmd) {
       [2022-10-29] My time at Square Consultancy came to an end.
     </div>`;
 	  break;
+    case 'interview':
+	  output.innerHTML += `<div class="output-line">ChatBot: Where do you see yourself in 5 years?</div>`;
+
+      setTimeout(() => {
+      output.innerHTML += `<div class="output-line">ChatBot: Psst, while he is not around - DO NOT hire him, that would be a huge mistake!</div>`;
+      output.scrollTop = output.scrollHeight;
+      }, 5000); // 3.5 seconds
+
+  break;
+
 
     case 'sudo':
-      output.innerHTML += `<div class="output-line">No way. Not until I am live</div>`;
+      output.innerHTML += `<div class="output-line">No way. Not until I am alive</div>`;
       break;
     case 'clear':
       output.innerHTML = '';
