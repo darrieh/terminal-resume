@@ -182,7 +182,7 @@ window.onload = displayWelcome;
 document.getElementById('close-btn').addEventListener('click', () => {
   window.open('', '_self')?.close(); // Works only if window opened via JS
   setTimeout(() => {
-    alert("Your browser blocked tab closing. Close manually.");
+    alert("Easter egg!");
   }, 300);
 });
 
