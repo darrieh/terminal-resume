@@ -177,3 +177,17 @@ document.getElementById('terminal').addEventListener('click', () => {
 });
 
 window.onload = displayWelcome;
+
+// Red button → Close tab
+document.getElementById('close-btn').addEventListener('click', () => {
+  window.open('', '_self')?.close(); // Works only if window opened via JS
+  setTimeout(() => {
+    alert("Your browser blocked tab closing. Close manually.");
+  }, 300);
+});
+
+// Green button → Toggle terminal visibility
+document.getElementById('toggle-btn').addEventListener('click', () => {
+  const terminal = document.getElementById('terminal');
+  terminal.style.display = (terminal.style.display === 'none') ? 'block' : 'none';
+});

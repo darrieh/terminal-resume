@@ -12,7 +12,7 @@ body {
 }
 
 #title-frame {
-  border: 2px solid #663399;
+  border: 2px solid #483D8B;
   padding: 15px 30px;
   border-radius: 12px;
   background-color: #111111;
@@ -30,8 +30,8 @@ body {
 }
 
 @keyframes pulseGlow {
-  from { box-shadow: 0 0 5px #663399; }
-  to   { box-shadow: 0 0 20px #663399; }
+  from { box-shadow: 0 0 5px #483D8B; }
+  to   { box-shadow: 0 0 20px #483D8B; }
 }
 
 #terminal-container {
