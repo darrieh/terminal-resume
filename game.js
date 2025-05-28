@@ -12,7 +12,8 @@ const availableCommands = [
   'sudo',
   'clear',
   'history',
-  'interview'
+  'interview',
+  'cat zenzero.log'
 ];
 
 let history = [];
@@ -143,13 +144,29 @@ function handleCommand(cmd) {
       [2022-10-29] My time at Square Consultancy came to an end.
     </div>`;
 	  break;
+	case 'cat zenzero.log':
+	  output.innerHTML += `<div class="output-line">[2022-10-31] Joined Zenzero as a 1st Line Engineer.</div>`;
+	  output.innerHTML += `
+    <div class="output-line">
+      [2022-10-31] There I dealt with over 350 different companies with different setups including - O365, On-Premise 
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Active Directory, VoIP, Azure Active Directory, Microsoft Intune, Email risk management such as
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mimecast.<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Worked with virtual machines and RDS.<br>
+  	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Got familiar with ticketing and RMM systems.<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configured and supported backups - StorageCraft, Veeam.<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Got in slight touch with SOC - Investigated and responded to Office 365 security breaches, executed 
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;phishing remediation procedures, and conducted detailed forensic analysis of email threats to 
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enhance organizational cybersecurity posture.<br>
+      [2024-04-19] Decided to move forward with my career.
+    </div>`;
+	  break;
     case 'interview':
 	  output.innerHTML += `<div class="output-line">ChatBot: Where do you see yourself in 5 years?</div>`;
 
       setTimeout(() => {
       output.innerHTML += `<div class="output-line">ChatBot: Psst, while he is not around - DO NOT hire him, that would be a huge mistake!</div>`;
       output.scrollTop = output.scrollHeight;
-      }, 5000); // 3.5 seconds
+      }, 6000); 
 
   break;
 
@@ -182,7 +199,7 @@ window.onload = displayWelcome;
 document.getElementById('close-btn').addEventListener('click', () => {
   window.open('', '_self')?.close(); // Works only if window opened via JS
   setTimeout(() => {
-    alert("Easter egg!");
+    alert("Easter Egg!");
   }, 300);
 });
 
