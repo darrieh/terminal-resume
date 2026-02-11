@@ -157,58 +157,6 @@ body {
 #terminal div {
   margin: 0;
   padding: 0;
-  transition: opacity 0.15s ease;
 }
 
-/* Contact links */
-.terminal-link {
-  color: #00BFFF;
-  text-decoration: none;
-  font-family: 'Ubuntu Mono', 'Courier New', monospace;
-  font-size: 18px;
-}
 
-.terminal-link:hover {
-  text-decoration: underline;
-  color: #87CEEB;
-}
-
-/* Interview mode */
-.interview-question {
-  color: #FFD700;
-  font-family: 'Ubuntu Mono', 'Courier New', monospace;
-  font-size: 18px;
-  line-height: 1.2;
-}
-
-.interview-response {
-  color: #98FB98;
-  font-family: 'Ubuntu Mono', 'Courier New', monospace;
-  font-size: 18px;
-  line-height: 1.2;
-}
-
-.prompt.interview-prompt {
-  color: #FFD700;
-}
-
-.prompt.interview-prompt::after {
-  content: '>';
-  color: #FFD700;
-  margin-left: 1px;
-}
-
-/* Fortune quotes */
-.fortune-text {
-  color: #DDA0DD;
-  font-family: 'Ubuntu Mono', 'Courier New', monospace;
-  font-size: 18px;
-  font-style: italic;
-  line-height: 1.2;
-}
-
-/* Ctrl+C indicator */
-.ctrlc {
-  color: #ff4d4d;
-  font-weight: bold;
-}
