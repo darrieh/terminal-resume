@@ -159,4 +159,34 @@ body {
   padding: 0;
 }
 
+/* neofetch */
+.neofetch {
+  margin: 5px 0;
+  padding: 0;
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #F8F8FF;
+  background: transparent;
+  border: none;
+}
 
+.neo-art {
+  color: #FFD700;
+}
+
+.neo-label {
+  color: #4FC3F7;
+  font-weight: bold;
+}
+
+/* contact links */
+.contact-link {
+  color: #5F9EA0;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+  color: #7EC8CA;
+}
